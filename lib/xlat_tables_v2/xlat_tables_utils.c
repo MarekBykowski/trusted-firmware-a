@@ -200,9 +200,10 @@ static void xlat_tables_print_internal(xlat_ctx_t *ctx, uintptr_t table_base_va,
 					(uint64_t *)addr_inner,
 					XLAT_TABLE_ENTRIES, level + 1U);
 			} else {
-				printf("%sVA:0x%lx PA:0x%" PRIx64 " size:0x%zx ",
-				       level_spacers[level], table_idx_va,
-				       (uint64_t)(desc & TABLE_ADDR_MASK),
+				/* mb: */
+				printf("%sdesc 0x%016llx @ 0x%016llx VA:0x%lx PA:0x%" PRIx64 " size:0x%zx ",
+				       level_spacers[level], desc, (unsigned long long)&(table_base[table_idx]),
+				       table_idx_va, (uint64_t)(desc & TABLE_ADDR_MASK),
 				       level_size);
 				xlat_desc_print(ctx, desc);
 				printf("\n");

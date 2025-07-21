@@ -252,6 +252,11 @@ void setup_mmu_cfg(uint64_t *params, unsigned int flags,
 		/* Enable CnP bit so as to share page tables with all PEs. */
 		ttbr0 |= TTBR_CNP_BIT;
 	}
+	printf("mb: %s():\n"
+	       "\tmair 0x%016llx\n"
+	       "\tttbcr 0x%016llx\n"
+	       "\tttbr0 0x%016llx\n",
+	       __func__, mair, (uint64_t) ttbcr, ttbr0);
 
 	/* Now populate MMU configuration */
 	params[MMU_CFG_MAIR] = mair;

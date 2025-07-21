@@ -257,6 +257,8 @@ void enable_mmu_svc_mon(unsigned int flags)
 		      tf_xlat_ctx.base_table, MAX_PHYS_ADDR,
 		      tf_xlat_ctx.va_max_address, EL1_EL0_REGIME);
 	enable_mmu_direct_svc_mon(flags);
+	/*mb:*/
+	/*__asm__ volatile ("1: b 1b\n");*/
 }
 
 void enable_mmu_hyp(unsigned int flags)

@@ -133,6 +133,7 @@ void arm_bl1_plat_arch_setup(void)
 #ifdef __aarch64__
 	enable_mmu_el3(0);
 #else
+	NOTICE("mb: BL1: before enable_mmu_svc_mon()\n");
 	enable_mmu_svc_mon(0);
 #endif /* __aarch64__ */
 
