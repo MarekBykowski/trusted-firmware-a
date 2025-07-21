@@ -96,6 +96,7 @@ void bl1_main(void)
 	NOTICE(FIRMWARE_WELCOME_STR);
 	NOTICE("BL1: %s\n", version_string);
 	NOTICE("BL1: %s\n", build_message);
+	NOTICE("BL1: mb: hello from the bootom of my arse %s\n", build_message);
 
 	INFO("BL1: RAM %p - %p\n", (void *)BL1_RAM_BASE, (void *)BL1_RAM_LIMIT);
 
