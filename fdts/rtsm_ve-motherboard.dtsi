@@ -246,7 +246,6 @@
 					compatible = "virtio,mmio";
 					reg = <0x200000 0x200>;
 					interrupts = <46>;
-					status = "disabled";
 				};
 
 				rtc@170000 {
